@@ -17,6 +17,14 @@ $('#add-clue').click(function() {
 
     $(new_clue).find('#number img').attr('src', 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld='+new_clue.clue_number+'%7CFFAA00%7C000000');
 
+    $(new_clue).find('#solved').click(function(){
+        if($(this).is(':checked')){
+            $(new_clue).find('#number img').attr('src', 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld='+new_clue.clue_number+'%7CAADD00%7C000000');
+        } else {
+            $(new_clue).find('#number img').attr('src', 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld='+new_clue.clue_number+'%7CFFAA00%7C000000');
+        }
+    });
+
     var new_clue_dom_elem = $(new_clue).find('#clue-address').get(0);
     var autocomplete = new google.maps.places.Autocomplete(new_clue_dom_elem);
     google.maps.event.addListener(autocomplete, 'place_changed', function() {
