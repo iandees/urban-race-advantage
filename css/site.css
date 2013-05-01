@@ -1,0 +1,15 @@
+#map {
+    height:400px;
+}
+
+.loading {
+    background: url('../img/loading.gif') left top;
+}
+
+.active {
+    font-weight:bold;
+}
+
+#clue-text {
+    height:5em;
+}
