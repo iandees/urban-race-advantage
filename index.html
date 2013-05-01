@@ -6,10 +6,8 @@
 
         <link rel='stylesheet' type='text/css' href='css/style.css' />
         <link rel='stylesheet' type='text/css' href='css/site.css' />
-        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-        <script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
-        <script src="js/Bing.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
         <script src="js/underscore-min.js"></script>
         <!--[if lte IE 8]><link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.ie.css" /><![endif]-->
     </head>
@@ -17,10 +15,10 @@
         <div class="col12">
             <div class="col6">
                 <ul id="clues" class="col12">
-                    <li>
+                    <li id='clue-template' class='hide'>
                         <div class='col12 pad1'>
                             <span class='col1 center' id='number'>
-                                <img src='https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=A%7CFFAA00%7C000000'/>
+                                <img src='https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=1%7CFFAA00%7C000000'/>
                             </span>
                             <div class='col11'>
                                 <textarea id='clue-text' placeholder='Clue text'></textarea>
