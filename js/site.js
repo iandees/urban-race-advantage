@@ -10,17 +10,17 @@ var autocomplete = new google.maps.places.Autocomplete(input);
 var clues_data = [];
 
 $('#add-clue').click(function() {
-    clues_data.push({clue:null, address:null, lat:null, lon:null, solved:false, assigned_to:null});
+    var new_clue = $("#clues li.template").clone();
+    new_clue.clue_number = $('#clues').children().length;
+    $(new_clue).removeClass('hide').removeClass('template');
+    $(new_clue).appendTo('#clues');
 
-    console.log('Adding a clue.');
-    var new_clue = $("#clues li#clue-template").clone();
+    $(new_clue).find('#number img').attr('src', 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld='+new_clue.clue_number+'%7CFFAA00%7C000000');
 
-    var autocomplete = new google.maps.places.Autocomplete($(new_clue).find('#clue-address').get(0));
+    var new_clue_dom_elem = $(new_clue).find('#clue-address').get(0);
+    var autocomplete = new google.maps.places.Autocomplete(new_clue_dom_elem);
     google.maps.event.addListener(autocomplete, 'place_changed', function() {
         var place = autocomplete.getPlace();
-        console.log("Clue is now " + place.geometry.location);
+        console.log("Clue " + clue_number + " is now " + place.geometry.location);
     });
-
-    $(new_clue).removeClass('hide');
-    $(new_clue).appendTo('#clues');
 });
